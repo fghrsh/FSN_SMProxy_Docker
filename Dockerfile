@@ -2,7 +2,7 @@ FROM php:7.2.12-cli-alpine
 
 ENV SMProxy_VERSION 1.2.4
 
-RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers && \
+RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers \
     && pecl install swoole \
     && docker-php-ext-enable swoole \
     \
