@@ -1,4 +1,4 @@
-FROM php:7.2.12-fpm-alpine
+FROM php:7.2.12-alpine
 
 ENV SMProxy_VERSION 1.2.4
 
