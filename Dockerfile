@@ -2,8 +2,6 @@ FROM php:7.2.12-cli-alpine
 
 ENV SMProxy_VERSION 1.2.4
 
-ADD https://github.com/louislivi/smproxy/releases/download/v$SMProxy_VERSION/smproxy.tar.gz /usr/local
-
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers && \
     && pecl install swoole \
     && docker-php-ext-enable swoole \
@@ -27,6 +25,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers && \
 	&& mv /tmp/envsubst /usr/local/bin/ \
     \
     && cd /usr/local \
+    && wget https://github.com/louislivi/smproxy/releases/download/v$SMProxy_VERSION/smproxy.tar.gz \
     && tar -zxvf smproxy.tar.gz \
     && ls -lna
 
