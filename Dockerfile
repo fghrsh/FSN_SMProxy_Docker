@@ -35,4 +35,4 @@ VOLUME /usr/local/smproxy/logs
 
 EXPOSE 3366
 
-CMD ["/usr/local/smproxy/SMProxy", "start --console"]
+CMD ["/usr/local/smproxy/SMProxy", "start", "--console"]
