@@ -1,6 +1,6 @@
-FROM php:7.3.0-cli-alpine
+FROM php:7.2.13-cli-alpine
 
-ENV SMProxy_VERSION 1.2.5
+ENV SMProxy_VERSION 1.2.9
 
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers \
     && pecl install swoole \
@@ -30,9 +30,8 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers \
     && ls -lna
 
 VOLUME /usr/local/smproxy/conf
-
 VOLUME /usr/local/smproxy/logs
 
-EXPOSE 3366
+EXPOSE 3306
 
 CMD ["/usr/local/smproxy/SMProxy", "start", "--console"]
